@@ -41,7 +41,7 @@ def create_md(lines: list, layout: list):
         html_filename = str(item[layout.index('pub_date')]) + "-" + item[layout.index('url_slug')]
         
         # Parse the YAML variables
-        md = f"---\ntitle: \"{item[layout.index('title')]}\"\n"
+        md = f"---\ntitle: \"{item[layout.index('title')]}\""
         md += "collection: publications"
         if len(layout) == len(HEADER_UPDATED):
             md += f"\ncategory: {item[layout.index('category')]}"
@@ -62,7 +62,7 @@ def create_md(lines: list, layout: list):
             md += f"\n<a href='{item[layout.index('paper_url')]}'>Download paper here</a>\n"
         if len(str(item[layout.index('excerpt')])) > 5:
             md += f"\n{html_escape(item[layout.index('excerpt')])}\n"
-        md += f"\nRecommended citation: {item[layout.index('citation')]}"
+        md += f"\nCitation: {item[layout.index('citation')]}"
         
         # Write the file
         md_filename = os.path.join("../_publications/", os.path.basename(md_filename))
